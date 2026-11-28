@@ -128,6 +128,43 @@ public class Nov18 {
         return result;
     }
 
+    private String removeEqualPairsOfConsecutiveChar(String str) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (!stack.isEmpty() && stack.peek() == ch) {
+                stack.pop();
+            } else {
+                stack.push(ch);
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Character character : stack) {
+            sb.append(character);
+        }
+        return sb.toString();
+    }
+
+    private int largestRectangleInHistogram(int[] A) {
+        return 0;
+    }
+
+
+
+    public static void main(String[] args) {
+        Nov18 clazz = new Nov18();
+
+        String string = clazz.removeEqualPairsOfConsecutiveChar("abbc");
+        System.out.println(string);
+
+        int[] A = {2, 1, 5, 6, 2, 3};
+        int i = clazz.largestRectangleInHistogram(A);
+        System.out.println(i);
+    }
+
+
+
 
 }
 

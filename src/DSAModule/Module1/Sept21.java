@@ -1,5 +1,6 @@
 package DSAModule.Module1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Sept21 {
@@ -41,6 +42,29 @@ public class Sept21 {
             }
             totalWater += maxR - A[i];
         }
+        return totalWater;
+    }
+
+    private static int rainWaterTrapping1(int[] A) {
+        int left = 0;
+        int right = A.length - 1;
+
+        int maxL = 0;
+        int maxR = 0;
+        int totalWater = 0;
+
+        for (int i = 0; i < A.length - 1; i++) {
+            if (A[left] <= A[right]) {
+                maxL = Math.max(maxL, A[left]);
+                totalWater += maxL - A[left];
+                left++;
+            } else {
+                maxR = Math.max(maxR, A[right]);
+                totalWater += maxR - A[right];
+                right--;
+            }
+        }
+
         return totalWater;
     }
 
